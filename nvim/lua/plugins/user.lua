@@ -5,6 +5,7 @@
 
 ---@type LazySpec
 return {
+  colorscheme = "dracula",
 
   -- == Examples of Adding Plugins ==
 

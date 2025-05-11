@@ -21,4 +21,13 @@ vim.opt.shiftwidth = 4      -- Number of spaces to use for each step of (auto)in
 vim.opt.expandtab = true     -- Use spaces instead of tabs
 
 require "lazy_setup"
-require "polish"
+require "polish"-- Override the default colorscheme
+
+local colorscheme = "dracula" -- Replace with your desired colorscheme
+
+-- Safely apply the colorscheme
+local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+if not status_ok then
+  vim.notify("Colorscheme " .. colorscheme .. " not found! Falling back to default.", vim.log.levels.ERROR)
+  vim.cmd("colorscheme default")
+end
